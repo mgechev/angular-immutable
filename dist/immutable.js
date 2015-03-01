@@ -11,11 +11,11 @@ var immutableDirective = (function() {
     if (!scope[expr]) {
       console.warn('No ' + expr + ' property found.');
     }
-    scope.$watch(function() {
+    scope.$watch((function() {
       return scope.$parent[expr];
-    }, function(val) {
+    }), (function(val) {
       scope[expr] = val.toJS();
-    });
+    }));
   });
   return {
     priority: priority,
