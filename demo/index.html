@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body ng-app="sampleApp" ng-controller="SampleCtrl">
+<ul>
+  <li immutable="list" ng-repeat="item in list track by $index" ng-bind="item"></li>
+</ul>
+<script src="./bower_components/angular/angular.js"></script>
+<script src="./bower_components/immutable/dist/immutable.js"></script>
+<script src="./app.js"></script>
+<script src="../dist/immutable.js"></script>
+</body>
+</html>
