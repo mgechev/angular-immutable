@@ -5,8 +5,6 @@ Angular Immutable is a simple directive, which allows binding of [Immutable.js](
 # Demo
 
 ```javascript
-/* global Immutable, angular */
-
 var sampleApp = angular.module('sampleApp', ['immutable']);
 
 function SampleCtrl($scope) {
