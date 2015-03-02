@@ -1,0 +1,21 @@
+{
+  "name": "angular-immutable",
+  "version": "0.0.1",
+  "main": "./dist/immutable.js",
+  "homepage": "https://github.com/mgechev/angular-immutable",
+  "authors": [
+    "mgechev <mgechev@gmail.com>"
+  ],
+  "description": "Directive for binding to Immutable.js collections",
+  "license": "MIT",
+  "dependencies": {
+    "angular": ">=1.1.4"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
