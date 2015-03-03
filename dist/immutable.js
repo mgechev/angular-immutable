@@ -4,17 +4,17 @@ var immutableDirective = (function() {
   var priority = 2000;
   var scope = true;
   var link = (function(scope, el, attrs) {
-    var expr = attrs.immutable;
-    if (!(/^[a-zA-Z0-9_$]+$/).test(expr)) {
+    var immutable = attrs.immutable;
+    if (!(/^[a-zA-Z0-9_$]+$/).test(immutable)) {
       return ;
     }
-    if (!scope[expr]) {
-      console.warn(("No " + expr + " property found."));
+    if (!scope[immutable]) {
+      console.warn(("No " + immutable + " property found."));
     }
     scope.$watch((function() {
-      return scope.$parent[expr];
+      return scope.$parent[immutable];
     }), (function(val) {
-      scope[expr] = val.toJS();
+      scope[immutable] = val.toJS();
     }));
   });
   return {
