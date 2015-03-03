@@ -9,7 +9,7 @@ var immutableDirective = (function() {
       return ;
     }
     if (!scope[expr]) {
-      console.warn('No ' + expr + ' property found.');
+      console.warn(("No " + expr + " property found."));
     }
     scope.$watch((function() {
       return scope.$parent[expr];
