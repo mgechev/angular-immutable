@@ -1,6 +1,6 @@
 # Angular Immutable
 
-Angular Immutable is a simple directive, which allows binding of [Immutable.js](https://github.com/facebook/immutable-js) collections.
+Angular Immutable is a simple filter, which allows binding of [Immutable.js](https://github.com/facebook/immutable-js) collections.
 
 # Demo
 
@@ -23,7 +23,7 @@ sampleApp.controller('SampleCtrl', SampleCtrl);
 </head>
 <body ng-app="sampleApp" ng-controller="SampleCtrl">
 <ul>
-  <li immutable="list" ng-repeat="item in list track by $index" ng-bind="item"></li>
+  <li ng-repeat="item in list | immutable track by $index" ng-bind="item"></li>
 </ul>
 <script src="/javascripts.js"></script>
 </body>
