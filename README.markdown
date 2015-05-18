@@ -36,6 +36,9 @@ sampleApp.controller('SampleCtrl', SampleCtrl);
 * 2
 * 3
 
+
+You can find additional [immutable-js tools for Angular here](https://github.com/PaySavvy/immutable-angular).
+
 # License
 
 MIT
