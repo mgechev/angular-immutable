@@ -4,11 +4,14 @@
   "description": "Immutable data structures in AngularJS",
   "main": "./dist/immutable.js",
   "scripts": {
+    "browserify": "browserify -e ./lib/immutable.js -t es6ify -o ./dist/immutable.js -s angularImmutable",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "@mgechev",
   "license": "MIT",
   "devDependencies": {
+    "browserify": "^10.2.0",
+    "es6ify": "^1.6.0",
     "gulp": "^3.8.11",
     "gulp-rename": "^1.2.0",
     "gulp-traceur": "^0.17.0",
