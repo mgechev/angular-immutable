@@ -3,9 +3,6 @@
   "version": "0.1.0",
   "main": "./dist/immutable.js",
   "homepage": "https://github.com/mgechev/angular-immutable",
-  "scripts": {
-    "postinstall": "npm run build"
-  },
   "authors": [
     "mgechev <mgechev@gmail.com>"
   ],
