@@ -8,7 +8,7 @@ Angular Immutable is a simple directive, which allows binding of [Immutable.js](
 var sampleApp = angular.module('sampleApp', ['immutable']);
 
 function SampleCtrl($scope) {
-  $scope.list = Immutable.List([1, 2, 3]);
+  $scope.data.nestedList = Immutable.List([1, 2, 3]);
 }
 
 sampleApp.controller('SampleCtrl', SampleCtrl);
@@ -23,7 +23,7 @@ sampleApp.controller('SampleCtrl', SampleCtrl);
 </head>
 <body ng-app="sampleApp" ng-controller="SampleCtrl">
 <ul>
-  <li immutable="list" ng-repeat="item in list track by $index" ng-bind="item"></li>
+  <li immutable="data.nestedList" ng-repeat="item in immutables track by $index" ng-bind="item"></li>
 </ul>
 <script src="/javascripts.js"></script>
 </body>
