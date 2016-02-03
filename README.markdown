@@ -23,7 +23,7 @@ sampleApp.controller('SampleCtrl', SampleCtrl);
 </head>
 <body ng-app="sampleApp" ng-controller="SampleCtrl">
 <ul>
-  <li immutable="data" ng-repeat="item in immutables track by $index" ng-bind="item"></li>
+  <li immutable="data" ng-repeat="item in data track by $index" ng-bind="item"></li>
 </ul>
 <script src="/javascripts.js"></script>
 </body>
