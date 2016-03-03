@@ -3,6 +3,32 @@
 
 /* global angular */
 
+function get(path, obj) {
+  var schema = obj;
+  var pList = path.split('.');
+  var len = pList.length;
+  for (var i = 0; i < len - 1; i++) {
+    var elem = pList[i];
+    if (!schema[elem]) {
+      throw new Error('Invalid path "' + path + '"');
+    }
+    schema = schema[elem];
+  }
+  return schema[pList[len - 1]];
+}
+
+function set(path, obj, val) {
+  var schema = obj;
+  var pList = path.split('.');
+  var len = pList.length;
+  for (var i = 0; i < len - 1; i++) {
+    var elem = pList[i];
+    schema[elem] = {};
+    schema = schema[elem];
+  }
+  schema[pList[len - 1]] = val;
+}
+
 var immutableDirective = function immutableDirective() {
   var priority = 2000;
   var scope = true;
@@ -10,16 +36,16 @@ var immutableDirective = function immutableDirective() {
   var link = function link(scope, el, attrs) {
     var immutable = attrs.immutable;
 
-    if (!/^[a-zA-Z0-9_$]+$/.test(immutable)) {
+    if (!/^[a-zA-Z0-9_$.]+$/.test(immutable)) {
       throw new Error('The "immutable" directive accepts ' + 'as argument a variable name');
     }
-    if (!scope[immutable]) {
-      console.warn('No ' + immutable + ' property found.');
+    if (!get(immutable, scope.$parent)) {
+      console.warn('No "' + immutable + '" property found.');
     }
-    scope.$watch(function () {
-      return scope.$parent[immutable];
+    scope.$parent.$watch(function () {
+      return get(immutable, scope.$parent);
     }, function (val) {
-      scope[immutable] = val.toJS();
+      set(immutable, scope, val.toJS());
     });
   };
   return { priority: priority, scope: scope, restrict: restrict, link: link };
