@@ -1,6 +1,6 @@
 {
   "name": "angular-immutable",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Immutable data structures in AngularJS",
   "main": "./dist/immutable.js",
   "scripts": {
