@@ -29,18 +29,19 @@ function set(path, obj, val) {
   schema[pList[len - 1]] = val;
 }
 
-var immutableDirective = function immutableDirective() {
+var immutableDirective = function immutableDirective($log) {
   var priority = 2000;
   var scope = true;
   var restrict = 'A';
   var link = function link(scope, el, attrs) {
     var immutable = attrs.immutable;
 
+
     if (!/^[a-zA-Z0-9_$.]+$/.test(immutable)) {
       throw new Error('The "immutable" directive accepts ' + 'as argument a variable name');
     }
     if (!get(immutable, scope.$parent)) {
-      console.warn('No "' + immutable + '" property found.');
+      $log.warn('No "' + immutable + '" property found.');
     }
     scope.$parent.$watch(function () {
       return get(immutable, scope.$parent);
@@ -50,6 +51,8 @@ var immutableDirective = function immutableDirective() {
   };
   return { priority: priority, scope: scope, restrict: restrict, link: link };
 };
+
+immutableDirective.$inject = ['$log'];
 
 module.exports = angular.module('immutable', []).directive('immutable', immutableDirective).name;
 
