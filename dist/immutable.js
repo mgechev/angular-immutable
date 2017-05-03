@@ -46,6 +46,8 @@ var immutableDirective = function immutableDirective($log) {
     scope.$parent.$watch(function () {
       return get(immutable, scope.$parent);
     }, function (val) {
+      if (!val) return $log.warn('Property "' + immutable + '" does not exist.');
+      if (typeof val.toJS !== 'function') return $log.warn('Property "' + immutable + '" does not seem to be an immutable object.');
       set(immutable, scope, val.toJS());
     });
   };
